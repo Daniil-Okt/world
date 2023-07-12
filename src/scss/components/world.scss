@@ -1,0 +1,46 @@
+.world {
+    margin-top: rem(-105);
+    padding-top: rem(105);
+    @include adaptiveClamp(padding-bottom, 341, 197);
+    // background-color: $blackColor;
+    background: url(@img/world-fon.png)no-repeat center center / cover;
+    @media(max-width:1050px){
+        padding-top: rem(85);
+        margin-top: rem(-85);
+      }
+      @media(max-width:850px){
+        padding-top: rem(75);
+        margin-top: rem(-75);
+      }
+      @media(max-width:540px){
+        padding-top: rem(60);
+        margin-top: rem(-60);
+      }
+      @media(max-width:450px){
+        background: url(@img/world-fon-mob.png)no-repeat center center / cover;
+      }
+
+    &__container {
+    }
+
+    &__title {
+        @include adaptiveClamp(margin-top, 90, 40);
+        @include adaptiveClamp(margin-bottom, 24, 12);
+        @media(max-width:420px){
+            max-width: rem(340);
+        }
+    }
+
+    &__text {
+        margin-bottom: rem(48);
+        max-width: rem(527);
+        @include adaptiveClamp(font-size, 20, 16);
+    }
+
+    &__button-row {
+    }
+
+    &__button {
+        
+    }
+}

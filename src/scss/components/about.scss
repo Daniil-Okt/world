@@ -1,0 +1,153 @@
+.about {
+    position: relative;
+    background-color: $grayColor;
+    @include adaptiveClamp(padding-top, 234, 178);
+    @include adaptiveClamp(padding-bottom, 130, 60);
+
+    &__container {
+    }
+
+    &__record {
+       
+
+    }
+
+    &__title {
+
+    }
+
+    &__text {
+        display: flex;
+        gap: rem(24);
+        margin-bottom: rem(24);
+        @media(max-width:760px){
+            flex-direction: column;
+            gap: rem(16);
+            p {
+                flex: 0 1 100%;
+            }
+        }
+        p {
+            flex: 0 1 50%;
+        }
+    }
+
+    &__row {
+        display: flex;
+        gap: rem(24);
+        @media(max-width:760px){
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        
+    }
+
+    &__right {
+        
+    }
+}
+.record-about  {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    transform: translate(-50%,-48%);
+    @include adaptiveClamp(max-width, 396, 220);
+    padding: rem(5);
+
+    &__img {
+        max-width: 100%;
+        animation: record 10s linear 0s infinite;
+        // animation-delay: 1s;
+    }
+    &__button-row {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__button {
+        @include adaptiveClamp(width, 133, 74);
+        @include adaptiveClamp(height, 133, 74);
+        background-color: $oragneColor;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease  0s;
+        img {
+            position: relative;
+            @include adaptiveClamp(width, 39, 21.7);
+            animation: button 2s ease-in-out  4s infinite;
+            
+            transition: all 0.3s ease  0s;
+        }
+        
+        &:hover {
+            img {
+                animation: button 2s ease-in-out 4s infinite;
+            }
+            background-color: #e74500;
+        }
+        &:active {
+            img {
+                transform: translateY(rem(4));
+            }
+        }
+    }
+}
+.left-about {
+    display: flex;
+    gap: rem(24);
+    flex: 0 1 50%;
+    @media(max-width:760px){
+        flex: 0 1 100%;
+        flex-direction: column;
+    }
+    &__row-img {
+        display: flex;
+        gap: rem(24);
+        @media(max-width:520px){
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        flex: 0 1 50%;
+        max-width: rem(306);
+        @media(max-width:760px){
+            max-width: 100%;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.right-about {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 50%;
+    min-height: 100%;
+    @media(max-width:760px){
+        flex: 0 1 100%;
+    }
+    &__text {
+        @include adaptiveClamp(margin-bottom, 24, 16);
+    }
+    &__text-bold {
+        font-weight: 700;
+        margin-top: auto;
+        @media(max-width:760px){
+            margin-top: rem(48);
+        }
+    }
+}

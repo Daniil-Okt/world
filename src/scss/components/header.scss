@@ -1,0 +1,155 @@
+// =====================================================================================================================
+.header {
+  position: relative;
+  // background-color: $blackColor;
+  width: 100%;
+  z-index: 4;
+
+  &.sticky {
+    // ..стили для липкого хедера
+  }
+
+  // .header__container
+  &__container {
+    height: rem($headerHeight);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media(max-width:1050px){
+      height: rem(85);
+    }
+    @media(max-width:850px){
+      height: rem(75);
+    }
+    @media(max-width:540px){
+      height: rem(60);
+    }
+  }
+
+  &__logo {
+    position: relative;
+    @include adaptiveClamp(max-width, 350, 165);
+    img {
+      width: 100%;
+    }
+    z-index: 5;
+  }
+
+  &__menu {
+  }
+}
+.logo {
+}
+.menu {
+  @media(max-width:720px){
+      position: fixed;
+      right: -100%;
+      top: 0;
+      width: rem(250);
+      padding: rem(100) rem(15) rem(25);
+      background-color: #1e1e1ef5;
+      z-index: 4;
+      border-bottom-left-radius: 5px;
+      transition: all 0.5s ease  0s;
+  }
+  @media(max-width:540px){
+      padding: rem(85) rem(15) rem(25);
+  }
+  @media(max-width:420px){
+      width: 100%;
+  }
+  .menu-open & {
+    right: 0;
+  }
+  &__list {
+    display: flex;
+    @include adaptiveClamp(gap, 40, 20);
+    @media(max-width:720px){
+        flex-direction: column;
+    }
+    
+  }
+
+  &__item {
+  }
+
+  &__link {
+    @include adaptiveClamp(font-size, 20, 12);
+    line-height: normal;
+    transition: filter 0.3s ease  0s;
+    @media(max-width:720px){
+        @include adaptiveClamp(font-size, 20, 18);
+    }
+    &:hover {
+      filter: drop-shadow(2px 2px 10px $oragneColor);
+    }
+  }
+}
+
+// =====================================================================================================================
+
+// Burger
+
+.icon-menu {
+  display: none;
+  transition: all 0.3s ease  0s;
+  @include media(720) {
+    display: block;
+    position: relative;
+    width: rem(28);
+    height: rem(16);
+    background: transparent;
+    cursor: pointer;
+    z-index: 5;
+
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 300ms ease 0ms;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: $whiteColor;
+      border-radius: 10px;
+      @media(max-width:580px){
+        width: 100%;
+        height: rem(1.5);
+      }
+    }
+    @media(max-width:580px){
+      width: rem(24);
+      height: rem(12);
+    }
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      top: calc(50% - rem(1));
+    }
+
+    .menu-open & {
+      transition: all 0.5s ease  0s;
+      transform: rotate(270deg);
+      span {
+        width: 0;
+      }
+
+      &::before {
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

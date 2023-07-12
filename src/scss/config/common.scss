@@ -1,0 +1,100 @@
+// Заголовки, общие БЄМ блоки и проче...
+h1 {
+    font-family: bebasneueregular;
+    @include adaptiveClamp(font-size, 82, 36);
+    line-height: normal;
+    text-transform: uppercase;
+}
+h2 {
+    @include adaptiveClamp(font-size, 64, 32);
+    @include adaptiveClamp(margin-bottom, 32, 16);
+    text-transform: uppercase;
+    line-height: normal;
+}
+h3 {
+    @include adaptiveClamp(font-size, 24, 16);
+    line-height: normal;
+    text-transform: uppercase;
+}
+p {
+    @include adaptiveClamp(font-size, 18, 10);
+    line-height: normal;
+
+}
+[class*='__button-row']{
+    position: relative;
+}
+.button {
+    position: relative;
+    display: block;
+    @include adaptiveClamp(max-width, 306, 165);
+    width: 100%;
+    @include adaptiveClamp(padding, 18, 10);
+    background-color: $oragneColor;
+    text-transform: uppercase;
+    text-align: center;
+    @include adaptiveClamp(font-size, 24, 16);
+
+    cursor: pointer;
+    transition: all 0.3s ease  0s;
+    z-index: 2;
+    &__line {
+        position: absolute;
+        content: '';
+        @include adaptiveClamp(width, 306, 165);
+        height: 100%;
+        // background: $greenColor;
+        border: 1px solid $whiteColor;
+        top: rem(10);
+        left: rem(10);
+        transition: all 0.3s ease  0s;
+        // z-index: -2;
+
+    }
+    &:hover {
+        transform: translate(10px,10px);
+        &__line { 
+            top: rem(0);
+            left: rem(0);
+            // z-index: -2;
+        }
+    }
+    &:active {
+        background-color: #e74500;
+    }
+    @media(max-width:1100px){
+        &__line { 
+            top: rem(5);
+            left: rem(5);
+        }
+        &:hover {
+            transform: translate(5px,5px);
+            
+        }
+    }
+}   
+
+
+@keyframes record {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+        transform: rotate(360deg);
+    }
+  }
+@keyframes button {
+    from {
+      transform: translateY(0);
+    }
+    25% {
+        transform: translateY(rem(-4));
+    }
+    50% {
+        transform: translateY(rem(5));
+    }
+    to {
+        transform: translateY(0);
+    }
+}
