@@ -9,7 +9,7 @@ require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
 // Формирование самого письма
-$title = "WORLD";
+$title = "Application";
 $body = "
 <h2>Application from the website</h2>
 <b>Name:</b> $name<br>
@@ -25,16 +25,15 @@ try {
     //$mail->SMTPDebug = 2;
     $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
-    $mail->Host       = 'smtp.gmail.com'; 
-    $mail->Username   = 'worldentertainment1.ltd@gmail.com'; 
-    // 
-    $mail->Password   = '6W1EU4RUb7ptcmCvtHCQ';
+    $mail->Host       = 'smtp.mail.ru'; 
+    $mail->Username   = 'ltd.world@mail.ru'; 
+    $mail->Password   = 'eu9pz7xkFx3Zv9dHvNbK';
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('web-prog-dn@mail.ru', 'GILDIA'); 
-    // Получатель письма
-    $mail->addAddress('danikoktysyk@gmail.com');  
-
+    $mail->setFrom('ltd.world@mail.ru', 'WORLD'); 
+    // Получатель письма 
+    $mail->addAddress('ceo@worldentertainment.ltd'); 
+    
 // Отправка сообщения
 $mail->isHTML(true);
 $mail->Subject = $title;
